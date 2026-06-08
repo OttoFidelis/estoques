@@ -1,17 +1,16 @@
 package com.estudos.estoques.stockMovement.application;
 
-import java.time.LocalDateTime;
+import org.springframework.stereotype.Service;
 
 import com.estudos.estoques.product.domain.ProductQuantity;
-import com.estudos.estoques.product.infrastructure.ProductEntity;
-import com.estudos.estoques.stockMovement.domain.MovementId;
 import com.estudos.estoques.stockMovement.domain.MovementType;
 import com.estudos.estoques.stockMovement.infrastructure.StockMovementRepository;
 import com.estudos.estoques.stockMovement.domain.StockMovement;
 import com.estudos.estoques.stockMovement.infrastructure.StockMovementMapper;
 
+@Service
 public class CreateExitUseCase {
-    private StockMovementRepository stockMovementRepository;
+    private final StockMovementRepository stockMovementRepository;
 
     public CreateExitUseCase(StockMovementRepository stockMovementRepository) {
         this.stockMovementRepository = stockMovementRepository;
@@ -19,7 +18,7 @@ public class CreateExitUseCase {
 
     public void execute(CreateMovementCommand command){
         StockMovement movement = new StockMovement(
-            new MovementId(null),
+            null,
             command.getProduct(),
             MovementType.EXIT,
             new ProductQuantity(command.getQuantity()),

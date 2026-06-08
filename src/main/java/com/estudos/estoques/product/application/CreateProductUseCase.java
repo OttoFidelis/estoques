@@ -1,6 +1,9 @@
 package com.estudos.estoques.product.application;
 
 import com.estudos.estoques.product.infrastructure.ProductRepository;
+
+import org.springframework.stereotype.Service;
+
 import com.estudos.estoques.product.domain.Product;
 import com.estudos.estoques.product.domain.ProductId;
 import com.estudos.estoques.product.domain.ProductName;
@@ -10,7 +13,7 @@ import com.estudos.estoques.product.domain.ProductQuantity;
 import com.estudos.estoques.product.infrastructure.ProductEntity;
 import com.estudos.estoques.product.infrastructure.ProductMapper;
 
-
+@Service
 public class CreateProductUseCase {
     private final ProductRepository productRepository;
 

@@ -17,6 +17,7 @@ public class EstoquesApplication {
 		if (dotenv.get("DB_PASSWORD") != null)
 			System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
 		SpringApplication.run(EstoquesApplication.class, args);
+		System.out.println("Application started successfully!");
 	}
 
 }
