@@ -1,15 +1,12 @@
 package com.estudos.estoques.product.application;
 
-public record CreateProductCommand(Long id,
+public record CreateProductCommand(
     String name,
     String description,
     String sku,
     Integer quantity,
     Integer minQuantity
 ) {
-    public Long getId() {
-        return id;
-    }
     public String getName() {
         return name;
     }
