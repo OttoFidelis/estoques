@@ -13,6 +13,7 @@ public class User {
     UserEmail email;
     UserPasswordHash passwordHash;
     UserRole role;
+    
 
     public User(UserName name, UserEmail email, UserPasswordHash passwordHash, UserRole role) {
         this.name = name;

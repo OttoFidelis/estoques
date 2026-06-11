@@ -4,6 +4,7 @@ import com.estudos.estoques.user.application.CreateUserCommand;
 import com.estudos.estoques.user.application.CreateUserUseCase;
 import com.estudos.estoques.user.application.UserLoginCommand;
 import com.estudos.estoques.user.application.UserLoginUseCase;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,6 @@ public class UserController {
 
   private final CreateUserUseCase createUserUseCase;
   private final UserLoginUseCase userLoginUseCase;
-
   public UserController(
     CreateUserUseCase createUserUseCase,
     UserLoginUseCase userLoginUseCase
@@ -54,10 +54,8 @@ public class UserController {
         request.getEmail(),
         request.getRawPassword()
       );
-      UserLoginResponse response = UserLoginResponse.fromDomain(
-        userLoginUseCase.execute(command)
-      );
-      return new ResponseEntity<>(response, HttpStatus.OK);
+      UserLoginResponse response = userLoginUseCase.execute(command);
+      return ResponseEntity.ok(response);
     } catch (Exception e) {
       e.printStackTrace();
       return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
